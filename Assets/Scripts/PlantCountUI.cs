@@ -3,21 +3,20 @@ using TMPro;
 
 public class PlantCountUI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _plantedText;
-    [SerializeField] private TMP_Text _remainingText;
+    [SerializeField] private TMP_Text _plantedText;    
+    [SerializeField] private TMP_Text _remainingText;  
 
     public void UpdateSeeds (int seedsLeft, int seedsPlanted)
-    {   Debug.Log($"UI update: left={seedsLeft}, planted={seedsPlanted}");
-
+    {
         if (_plantedText != null)
         {
-            _plantedText.text = "Seeds Planted:  " + seedsPlanted;
+            _plantedText.text = seedsPlanted.ToString();
         }
 
         if (_remainingText != null)
         {
-            _remainingText.text = "Seeds remaining: " + seedsLeft;
+            _remainingText.text = seedsLeft.ToString();
         }
     }
-    
 }
+
