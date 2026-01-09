@@ -2,6 +2,8 @@
 # HW1
 ## Devlog
 Preferred name: Nansong Sun (he/him)
+
+
 I literally didnt have a plan after I tried to code for MG1.. with some help I wrote some code that could have made it work in imaginary situation..
 Then I found I literally coded nothing because there was no prefab. Maybe I changed it myself when I had no conciousness:(
 
