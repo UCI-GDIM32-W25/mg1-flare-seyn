@@ -3,24 +3,13 @@
 ## Devlog
 Preferred name: Nansong Sun (he/him)
 
+I started MG1 without a clear written plan. When I first tried to implement planting, I wrote the logic in the Player script, but nothing appeared in the scene because I didn’t actually have a Plant prefab to reference. At office hours, the professor helped me create a plant prefab (in the Prefabs folder), and after that I could assign it to the Player (Script) -> Plant Prefab field in the Inspector. Once _plantPrefab was properly assigned, Player.PlantSeed() started working as intended by calling Instantiate(_plantPrefab, _playerTransform.position, Quaternion.identity).
 
-I literally didnt have a plan after I tried to code for MG1.. with some help I wrote some code that could have made it work in imaginary situation..
-Then I found I literally coded nothing because there was no prefab. Maybe I changed it myself when I had no conciousness:(
+After planting worked, my next major issue was the UI. The template UI uses four Text objects on the Canvas: two labels and two number fields. In the Hierarchy they are Text_SeedsPlanted, Text_SeedsPlantedNum, Text_SeedsRemaining, and Text_SeedsRemainingNum. At first, my UI text duplicated after pressing Play because I was updating the number fields with the full label text (e.g., setting _plantedText.text = "Seeds Planted: " + seedsPlanted). This caused the label to appear twice.
 
+I fixed it by keeping the labels as separate GameObjects and only updating the numeric TMP texts in PlantCountUI.UpdateSeeds(int seedsLeft, int seedsPlanted). I attached PlantCountUI to the Canvas and linked its references to the two number objects (Text_SeedsPlantedNum and Text_SeedsRemainingNum). Then UpdateSeeds() only sets the numbers using seedsPlanted.ToString() and seedsLeft.ToString(), which stopped the duplicated UI.
 
-I attended officehour and professor helped me to slice one prefab and thats when everything started to flow
-After a long time fighting with the code the player object started to move and plant appropriately, then  I found another challenge:
-The UI became four pieces after I hit play button, and it hides itself carefully when in the scene( everything looked ok before playing)
-
-
-I fixed it by changing the updateseeds method from things like this _plantedText.text = "Seeds Planted: " + seedsPlanted;
-_remainingText.text = "Seeds remaining: " + seedsLeft;
-to like this   if (_plantedText != null) _plantedText.text = seedsPlanted.ToString();
-    if (_remainingText != null) _remainingText.text = seedsLeft.ToString();
-
-
-Then everything was on its move. its a small project but a big success for me....
-
+Once these references were correctly wired, the project matched the MG1 requirements: the Player moves with WASD/arrow keys in Player.Update(), pressing Space calls PlantSeed(), the scene starts with no plants (only plant(Clone) objects created at runtime), and the UI counters update correctly.
 
 
 ## Open-Source Assets
