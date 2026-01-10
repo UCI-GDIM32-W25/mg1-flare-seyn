@@ -13,8 +13,7 @@ Once these references were correctly wired, the project matched the MG1 requirem
 
 
 ## Open-Source Assets
-If you added any other outside assets, list them here!
-- [Sprout Lands sprite asset pack](https://cupnooble.itch.io/sprout-lands-asset-pack) - character and item sprites
+
 
 
 I'm still a long way to use outside assets... I will try to make myself more capable and add something else one day.. maybe
